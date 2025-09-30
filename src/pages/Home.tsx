@@ -65,7 +65,7 @@ const Home = () => {
 
       <WaveDivider />
 
-      {/* Factory & Operations */}
+      {/* Factory & Operations - Photo Based */}
       <section className="bg-card py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
@@ -73,49 +73,70 @@ const Home = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="glass-panel p-8 rounded-2xl text-center space-y-4 hover-scale">
-              <div className="w-16 h-16 mx-auto bg-gradient-accent rounded-2xl flex items-center justify-center">
-                <Factory className="w-8 h-8 text-white" />
+            {/* Manufacturing */}
+            <div className="group relative overflow-hidden rounded-2xl aspect-[4/3] cursor-pointer">
+              <img
+                src="/img/factory/manufacturing.jpg"
+                alt="Manufacturing"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <h3 className="text-2xl font-bold text-gold mb-2">
+                  {tObj({ fa: 'تولید پیشرفته', en: 'Advanced Manufacturing' })}
+                </h3>
+                <p className="text-sm text-white/90">
+                  {tObj({ 
+                    fa: 'خط تولید مدرن با ظرفیت سالانه بالا و کنترل کیفیت دقیق', 
+                    en: 'Modern production line with high annual capacity and precise quality control' 
+                  })}
+                </p>
               </div>
-              <h3 className="text-xl font-bold gradient-text">
-                {tObj({ fa: 'تولید پیشرفته', en: 'Advanced Manufacturing' })}
-              </h3>
-              <p className="text-sm text-muted-foreground">
-                {tObj({ 
-                  fa: 'خط تولید مدرن با ظرفیت سالانه بالا و کنترل کیفیت دقیق', 
-                  en: 'Modern production line with high annual capacity and precise quality control' 
-                })}
-              </p>
             </div>
 
-            <div className="glass-panel p-8 rounded-2xl text-center space-y-4 hover-scale">
-              <div className="w-16 h-16 mx-auto bg-gradient-accent rounded-2xl flex items-center justify-center">
-                <TestTube className="w-8 h-8 text-white" />
+            {/* Warehouse */}
+            <div className="group relative overflow-hidden rounded-2xl aspect-[4/3] cursor-pointer">
+              <img
+                src="/img/factory/warehouse.jpg"
+                alt="Warehouse"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <h3 className="text-2xl font-bold text-gold mb-2">
+                  {tObj({ fa: 'انبار و لجستیک', en: 'Warehouse & Logistics' })}
+                </h3>
+                <p className="text-sm text-white/90">
+                  {tObj({ 
+                    fa: 'سیستم مدیریت انبار پیشرفته با ردیابی کامل موجودی', 
+                    en: 'Advanced warehouse management system with complete inventory tracking' 
+                  })}
+                </p>
               </div>
-              <h3 className="text-xl font-bold gradient-text">
-                {tObj({ fa: 'آزمایشگاه تست', en: 'Testing Laboratory' })}
-              </h3>
-              <p className="text-sm text-muted-foreground">
-                {tObj({ 
-                  fa: 'آزمایشگاه مجهز به استانداردهای ISO 17025 برای تست کامل کنتورها', 
-                  en: 'Laboratory equipped with ISO 17025 standards for comprehensive meter testing' 
-                })}
-              </p>
             </div>
 
-            <div className="glass-panel p-8 rounded-2xl text-center space-y-4 hover-scale">
-              <div className="w-16 h-16 mx-auto bg-gradient-accent rounded-2xl flex items-center justify-center">
-                <Award className="w-8 h-8 text-white" />
+            {/* Testing */}
+            <div className="group relative overflow-hidden rounded-2xl aspect-[4/3] cursor-pointer">
+              <img
+                src="/img/factory/testing.jpg"
+                alt="Testing Laboratory"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <h3 className="text-2xl font-bold text-gold mb-2">
+                  {tObj({ fa: 'آزمایشگاه تست', en: 'Testing Laboratory' })}
+                </h3>
+                <p className="text-sm text-white/90">
+                  {tObj({ 
+                    fa: 'آزمایشگاه مجهز به استانداردهای ISO 17025 برای تست کامل کنتورها', 
+                    en: 'Laboratory equipped with ISO 17025 standards for comprehensive meter testing' 
+                  })}
+                </p>
               </div>
-              <h3 className="text-xl font-bold gradient-text">
-                {tObj({ fa: 'تضمین کیفیت', en: 'Quality Assurance' })}
-              </h3>
-              <p className="text-sm text-muted-foreground">
-                {tObj({ 
-                  fa: 'سیستم مدیریت کیفیت جامع با گواهینامه‌های بین‌المللی', 
-                  en: 'Comprehensive quality management system with international certifications' 
-                })}
-              </p>
             </div>
           </div>
         </div>
@@ -151,14 +172,63 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Testimonials */}
+      {/* Testimonials - 3D Deck Effect */}
       <section className="bg-card py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold mb-4 gold-text">{t('testimonialsTitle')}</h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          {/* Desktop: Overlapped Deck */}
+          <div className="hidden md:flex justify-center items-center max-w-5xl mx-auto min-h-[400px] relative">
+            {testimonials.map((testimonial, index) => (
+              <div
+                key={index}
+                className="testimonial-card absolute w-[350px] glass-panel p-6 rounded-2xl space-y-4 transition-all duration-300 cursor-pointer"
+                style={{
+                  left: `${index * 120}px`,
+                  zIndex: 1,
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.zIndex = '10';
+                  e.currentTarget.style.transform = 'scale(1.05) translateY(-10px)';
+                  e.currentTarget.style.filter = 'none';
+                  // Blur others
+                  document.querySelectorAll('.testimonial-card').forEach((card) => {
+                    if (card !== e.currentTarget) {
+                      (card as HTMLElement).style.filter = 'blur(2px) brightness(0.7)';
+                    }
+                  });
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.zIndex = '1';
+                  e.currentTarget.style.transform = 'scale(1) translateY(0)';
+                  e.currentTarget.style.filter = 'none';
+                  // Remove blur from all
+                  document.querySelectorAll('.testimonial-card').forEach((card) => {
+                    (card as HTMLElement).style.filter = 'none';
+                  });
+                }}
+              >
+                <Quote className="w-8 h-8 text-accent" />
+                <p className="text-sm italic text-foreground/90">"{tObj(testimonial.quote)}"</p>
+                <div className="flex items-center space-x-1">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <span key={i} className="text-gold text-lg">★</span>
+                  ))}
+                </div>
+                <div>
+                  <p className="font-semibold">{tObj(testimonial.author)}</p>
+                  <Badge variant="secondary" className="mt-2">
+                    {tObj(testimonial.sector)}
+                  </Badge>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Mobile: Simple Grid */}
+          <div className="md:hidden grid grid-cols-1 gap-6 max-w-md mx-auto">
             {testimonials.map((testimonial, index) => (
               <div key={index} className="glass-panel p-6 rounded-2xl space-y-4">
                 <Quote className="w-8 h-8 text-accent" />

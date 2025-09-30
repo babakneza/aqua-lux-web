@@ -20,17 +20,20 @@ export const ProductCard = ({ product }: ProductCardProps) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="relative overflow-hidden rounded-2xl glass-panel hover:shadow-elegant transition-all duration-300 hover:-translate-y-1">
-        {/* Product Image */}
-        <div className="relative h-64 bg-gradient-primary overflow-hidden">
+      <div className="relative overflow-hidden rounded-2xl glass-panel hover:shadow-elegant transition-all duration-300">
+        {/* Full-Bleed Product Image */}
+        <div className="relative aspect-[4/5] overflow-hidden">
+          {/* Dark overlay for readability */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10" />
+          
           <img
             src={product.images[0]}
             alt={tObj(product.title)}
-            className="w-full h-full object-contain p-8 transition-transform duration-500 group-hover:scale-110"
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-103"
           />
           
           {/* Category Badge */}
-          <div className="absolute top-4 ltr:left-4 rtl:right-4 z-10">
+          <div className="absolute top-4 ltr:left-4 rtl:right-4 z-20">
             <Badge className="bg-gold/90 text-gold-foreground backdrop-blur-sm">
               {tObj({ 
                 fa: product.category === 'domestic' ? 'خانگی' : product.category === 'industrial' ? 'صنعتی' : 'کشاورزی',
@@ -38,26 +41,26 @@ export const ProductCard = ({ product }: ProductCardProps) => {
               })}
             </Badge>
           </div>
-        </div>
 
-        {/* Default Content */}
-        <div className="p-6">
-          <h3 className="text-xl font-bold mb-2 gradient-text">
-            {tObj(product.title)}
-          </h3>
-          <p className="text-sm text-muted-foreground line-clamp-2">
-            {tObj(product.descriptionShort)}
-          </p>
+          {/* Text Overlay - Bottom */}
+          <div className="absolute bottom-0 left-0 right-0 p-6 z-20">
+            <h3 className="text-xl font-bold mb-2 text-gold">
+              {tObj(product.title)}
+            </h3>
+            <p className="text-sm text-white/90 line-clamp-2">
+              {tObj(product.descriptionShort)}
+            </p>
+          </div>
         </div>
 
         {/* Hover Overlay */}
         <div
-          className={`absolute inset-0 bg-gradient-overlay backdrop-blur-sm transition-opacity duration-300 ${
+          className={`absolute inset-0 bg-gradient-overlay backdrop-blur-sm transition-opacity duration-300 z-30 ${
             isHovered ? 'opacity-100' : 'opacity-0 pointer-events-none'
           }`}
         >
           <div className="p-6 h-full flex flex-col justify-center space-y-4">
-            <p className="text-sm text-foreground">
+            <p className="text-sm text-white">
               {tObj(product.descriptionShort)}
             </p>
 
@@ -65,7 +68,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
               {/* Mechanism */}
               <div className="flex items-center space-x-2 space-x-reverse">
                 <Gauge className="w-4 h-4 text-accent flex-shrink-0" />
-                <span className="text-sm">
+                <span className="text-sm text-white">
                   {tObj({
                     fa: product.mechanism === 'multi-jet' ? 'مولتی جت' : 
                         product.mechanism === 'single-jet' ? 'تک جت' :
@@ -79,7 +82,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
               {/* Sizes */}
               <div className="flex items-center space-x-2 space-x-reverse">
                 <Ruler className="w-4 h-4 text-accent flex-shrink-0" />
-                <span className="text-sm">
+                <span className="text-sm text-white">
                   DN {product.sizesDN.join(', ')}
                 </span>
               </div>
@@ -91,7 +94,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
                 <Badge
                   key={standard}
                   variant="secondary"
-                  className="bg-secondary/30 text-secondary-foreground border border-secondary/50"
+                  className="bg-secondary/30 text-white border border-secondary/50"
                 >
                   {standard}
                 </Badge>
@@ -99,7 +102,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
             </div>
 
             <div className="pt-2">
-              <span className="text-accent font-semibold hover:underline">
+              <span className="text-gold font-semibold hover:underline">
                 {tObj({ fa: 'مشاهده جزئیات ←', en: 'View Details →' })}
               </span>
             </div>

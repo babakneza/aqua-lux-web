@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 @import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css');
 
 @tailwind base;
@@ -41,7 +41,7 @@
     --input: 210 65% 15%;
     --ring: 199 89% 48%;
 
-    --radius: 1rem;
+    --radius: 1.25rem; /* 20px rounded corners */
 
     /* Gradients */
     --gradient-primary: linear-gradient(135deg, hsl(210 65% 11%) 0%, hsl(224 64% 33%) 100%);
@@ -60,6 +60,7 @@
 
     /* Transitions */
     --transition-smooth: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-medium: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
 
@@ -75,10 +76,12 @@
   body {
     @apply bg-background text-foreground;
     font-family: 'Inter', 'Vazirmatn', sans-serif;
+    font-display: swap;
   }
 
   [dir="rtl"] body {
     font-family: 'Vazirmatn', 'Inter', sans-serif;
+    font-display: swap;
   }
 }
 
@@ -115,6 +118,11 @@
 
   .hover-scale:hover {
     transform: scale(1.05);
+  }
+
+  /* Hover Scale 1.03 */
+  .scale-103 {
+    transform: scale(1.03);
   }
 
   /* Magnetic Button */
