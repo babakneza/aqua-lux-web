@@ -165,6 +165,34 @@
 }
 
 @layer utilities {
+  .safe-area-bottom {
+    padding-bottom: var(--safe-area-inset-bottom);
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .prose {
+    @apply text-foreground;
+  }
+
+  .prose h3 {
+    @apply text-foreground;
+  }
+
+  .prose ul {
+    @apply text-foreground;
+  }
+
+  .prose p {
+    @apply text-foreground/90;
+  }
   /* Animation Utilities */
   @keyframes float {
     0%, 100% {

@@ -2,11 +2,15 @@ import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, FileText } from 'lucide-react';
 import { useTranslation } from '@/hooks/useTranslation';
+import { useLocale } from '@/contexts/LocaleContext';
 import { LocaleSwitcher } from './LocaleSwitcher';
 import { Button } from './ui/button';
+import logoEn from '@/assets/logo-en.jpeg';
+import logoFa from '@/assets/logo-fa.jpeg';
 
 export const Header = () => {
   const { t } = useTranslation();
+  const { locale } = useLocale();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
 
@@ -23,11 +27,12 @@ export const Header = () => {
     <header className="fixed top-0 left-0 right-0 z-50 glass-panel border-b border-border/50">
       <nav className="container mx-auto px-4 h-16 flex items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="flex items-center space-x-2 space-x-reverse hover-scale">
-          <div className="w-10 h-10 bg-gradient-accent rounded-lg flex items-center justify-center">
-            <span className="text-2xl font-bold text-white">W</span>
-          </div>
-          <span className="text-lg font-bold gradient-text hidden sm:block">WaterMeter</span>
+        <Link to="/" className="flex items-center hover-scale">
+          <img
+            src={locale === 'fa' ? logoFa : logoEn}
+            alt={locale === 'fa' ? 'متراب' : 'METRAB'}
+            className="h-10 w-auto"
+          />
         </Link>
 
         {/* Desktop Navigation */}

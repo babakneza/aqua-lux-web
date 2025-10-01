@@ -1,10 +1,14 @@
 import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin, Linkedin, Instagram, Send } from 'lucide-react';
 import { useTranslation } from '@/hooks/useTranslation';
+import { useLocale } from '@/contexts/LocaleContext';
 import { WaveDivider } from './WaveDivider';
+import logoEn from '@/assets/logo-en.jpeg';
+import logoFa from '@/assets/logo-fa.jpeg';
 
 export const Footer = () => {
   const { t } = useTranslation();
+  const { locale } = useLocale();
 
   const quickLinks = [
     { key: 'home', path: '/' },
@@ -23,12 +27,13 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Company Info */}
           <div className="space-y-4">
-            <div className="flex items-center space-x-2 space-x-reverse">
-              <div className="w-10 h-10 bg-gradient-accent rounded-lg flex items-center justify-center">
-                <span className="text-2xl font-bold text-white">W</span>
-              </div>
-              <span className="text-lg font-bold gradient-text">WaterMeter</span>
-            </div>
+            <Link to="/" className="inline-block hover-scale">
+              <img
+                src={locale === 'fa' ? logoFa : logoEn}
+                alt={locale === 'fa' ? 'متراب' : 'METRAB'}
+                className="h-12 w-auto"
+              />
+            </Link>
             <p className="text-sm text-muted-foreground">
               {t('heroSubtitle')}
             </p>
@@ -110,7 +115,7 @@ export const Footer = () => {
 
         {/* Copyright */}
         <div className="border-t border-border/30 pt-6 text-center text-sm text-muted-foreground">
-          <p>© 2025 WaterMeter. {t('allRightsReserved')}</p>
+          <p>© 2025 {locale === 'fa' ? 'متراب' : 'METRAB'}. {t('allRightsReserved')}</p>
         </div>
       </div>
     </footer>
